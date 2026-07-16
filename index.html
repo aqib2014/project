@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MetroTour Explorer - Discover tourist destinations, plan metro routes, book hotels, events, and attractions. Your premium city travel companion."
+    />
+
+    <!-- Poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>MetroTour Explorer - Discover the City, Travel Smarter</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- ===================== 1. STICKY NAVIGATION BAR ===================== -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo" aria-label="MetroTour Explorer home">
+          <i class="fa-solid fa-train-subway logo-icon"></i>
+          <span class="logo-text">MetroTour<span class="logo-accent">Explorer</span></span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#destinations" class="nav-link">Destinations</a>
+          <a href="#metro" class="nav-link">Metro Routes</a>
+          <a href="#hotels" class="nav-link">Hotels</a>
+          <a href="#events" class="nav-link">Events</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn-ghost" data-open-modal="login">Login</button>
+          <button class="btn-primary nav-register" data-open-modal="register">
+            Register
+          </button>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== 2. HERO SECTION ===================== -->
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <span class="hero-badge">
+          <i class="fa-solid fa-location-dot"></i>
+          Your premium city travel companion
+        </span>
+        <h1 class="hero-title">Explore the City with MetroTour Explorer</h1>
+        <p class="hero-subtitle">
+          Discover breathtaking destinations, plan metro routes in seconds, and
+          book hotels, events, and attractions — all in one elegant platform.
+        </p>
+
+        <!-- Search bar -->
+        <form class="search-bar glass" id="searchForm">
+          <div class="search-field">
+            <i class="fa-solid fa-location-dot"></i>
+            <div class="search-input-wrap">
+              <label for="searchDest">Destination</label>
+              <input
+                type="text"
+                id="searchDest"
+                placeholder="Where to?"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-field">
+            <i class="fa-solid fa-calendar-days"></i>
+            <div class="search-input-wrap">
+              <label for="checkIn">Check-in</label>
+              <input type="date" id="checkIn" />
+            </div>
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-field">
+            <i class="fa-solid fa-calendar-check"></i>
+            <div class="search-input-wrap">
+              <label for="checkOut">Check-out</label>
+              <input type="date" id="checkOut" />
+            </div>
+          </div>
+          <button type="submit" class="btn-primary search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+          </button>
+        </form>
+
+        <div class="hero-cta">
+          <a href="#destinations" class="btn-primary btn-lg ripple">
+            <i class="fa-solid fa-compass"></i> Explore Now
+          </a>
+        </div>
+
+        <!-- Animated statistics -->
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Destinations</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="200">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Hotels</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Metro Stations</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="10000">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Happy Travelers</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#destinations" class="scroll-indicator" aria-label="Scroll down">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <main>
+      <!-- ===================== 3. FEATURED DESTINATIONS ===================== -->
+      <section class="section" id="destinations">
+        <div class="section-head reveal">
+          <span class="section-tag">Featured</span>
+          <h2 class="section-title">Discover Top Destinations</h2>
+          <p class="section-subtitle">
+            Handpicked spots loved by travelers, all reachable by metro.
+          </p>
+        </div>
+
+        <div class="card-grid" id="destinationsGrid">
+          <!-- Destination cards injected by script.js -->
+        </div>
+      </section>
+
+      <!-- ===================== 4. METRO ROUTE PLANNER PREVIEW ===================== -->
+      <section class="section section-alt" id="metro">
+        <div class="section-head reveal">
+          <span class="section-tag">Metro Routes</span>
+          <h2 class="section-title">Plan Your Metro Route</h2>
+          <p class="section-subtitle">
+            Find the fastest path across the city with our interactive route planner.
+          </p>
+        </div>
+
+        <div class="metro-planner reveal">
+          <!-- Interactive-looking metro map illustration -->
+          <div class="metro-map" aria-hidden="true">
+            <svg viewBox="0 0 500 320" class="metro-svg" preserveAspectRatio="xMidYMid meet">
+              <!-- Lines -->
+              <line x1="60" y1="60" x2="440" y2="60" class="metro-line line-blue" />
+              <line x1="60" y1="160" x2="440" y2="160" class="metro-line line-sky" />
+              <line x1="60" y1="260" x2="440" y2="260" class="metro-line line-teal" />
+              <line x1="120" y1="40" x2="120" y2="280" class="metro-line line-blue" />
+              <line x1="250" y1="40" x2="250" y2="280" class="metro-line line-sky" />
+              <line x1="380" y1="40" x2="380" y2="280" class="metro-line line-teal" />
+
+              <!-- Stations -->
+              <circle cx="120" cy="60" r="8" class="station" />
+              <circle cx="250" cy="60" r="8" class="station" />
+              <circle cx="380" cy="60" r="8" class="station" />
+              <circle cx="120" cy="160" r="8" class="station station-active" />
+              <circle cx="250" cy="160" r="8" class="station" />
+              <circle cx="380" cy="160" r="8" class="station station-active" />
+              <circle cx="120" cy="260" r="8" class="station" />
+              <circle cx="250" cy="260" r="8" class="station" />
+              <circle cx="380" cy="260" r="8" class="station" />
+
+              <!-- Route highlight -->
+              <path d="M120 160 L250 160 L250 60 L380 60 L380 160" class="route-highlight" />
+
+              <!-- Labels -->
+              <text x="120" y="40" class="station-label">Central</text>
+              <text x="250" y="40" class="station-label">Plaza</text>
+              <text x="380" y="40" class="station-label">Harbor</text>
+              <text x="120" y="185" class="station-label station-label-active">Riverside</text>
+              <text x="380" y="185" class="station-label station-label-active">Old Town</text>
+            </svg>
+          </div>
+
+          <!-- Route form -->
+          <div class="metro-form glass">
+            <h3 class="metro-form-title">Find your route</h3>
+            <div class="form-group">
+              <label for="sourceStation"><i class="fa-solid fa-circle-dot"></i> Source station</label>
+              <select id="sourceStation" class="form-control">
+                <option value="">Select source</option>
+                <option>Central</option>
+                <option>Riverside</option>
+                <option>Plaza</option>
+                <option>Harbor</option>
+                <option>Old Town</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="destStation"><i class="fa-solid fa-location-crosshairs"></i> Destination station</label>
+              <select id="destStation" class="form-control">
+                <option value="">Select destination</option>
+                <option>Central</option>
+                <option>Riverside</option>
+                <option>Plaza</option>
+                <option>Harbor</option>
+                <option>Old Town</option>
+              </select>
+            </div>
+            <div class="metro-result" id="metroResult">
+              <div class="metro-result-row">
+                <i class="fa-solid fa-clock"></i>
+                <span>Estimated travel time</span>
+                <strong id="metroTime">—</strong>
+              </div>
+              <div class="metro-result-row">
+                <i class="fa-solid fa-route"></i>
+                <span>Stops</span>
+                <strong id="metroStops">—</strong>
+              </div>
+            </div>
+            <button class="btn-primary btn-block ripple" id="metroRouteBtn">
+              <i class="fa-solid fa-route"></i> Get Route
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 5. POPULAR HOTELS ===================== -->
+      <section class="section" id="hotels">
+        <div class="section-head reveal">
+          <span class="section-tag">Stay</span>
+          <h2 class="section-title">Popular Hotels</h2>
+          <p class="section-subtitle">
+            Comfortable stays near every major metro station.
+          </p>
+        </div>
+
+        <div class="card-grid" id="hotelsGrid">
+          <!-- Hotel cards injected by script.js -->
+        </div>
+      </section>
+
+      <!-- ===================== 6. UPCOMING EVENTS ===================== -->
+      <section class="section section-alt" id="events">
+        <div class="section-head reveal">
+          <span class="section-tag">Events</span>
+          <h2 class="section-title">Upcoming Events</h2>
+          <p class="section-subtitle">
+            Don't miss what's happening around the city.
+          </p>
+        </div>
+
+        <div class="card-grid" id="eventsGrid">
+          <!-- Event cards injected by script.js -->
+        </div>
+      </section>
+
+      <!-- ===================== 7. WHY CHOOSE METROTOUR ===================== -->
+      <section class="section" id="why">
+        <div class="section-head reveal">
+          <span class="section-tag">Why us</span>
+          <h2 class="section-title">Why Choose MetroTour Explorer</h2>
+          <p class="section-subtitle">
+            Everything you need for a smooth, safe, and affordable journey.
+          </p>
+        </div>
+
+        <div class="features-grid" id="featuresGrid">
+          <!-- Feature cards injected by script.js -->
+        </div>
+      </section>
+
+      <!-- ===================== 8. CUSTOMER TESTIMONIALS ===================== -->
+      <section class="section section-alt" id="testimonials">
+        <div class="section-head reveal">
+          <span class="section-tag">Testimonials</span>
+          <h2 class="section-title">What Travelers Say</h2>
+          <p class="section-subtitle">
+            Real stories from real explorers.
+          </p>
+        </div>
+
+        <div class="card-grid" id="testimonialsGrid">
+          <!-- Testimonial cards injected by script.js -->
+        </div>
+      </section>
+
+      <!-- ===================== 9. CALL TO ACTION ===================== -->
+      <section class="cta-section" id="cta">
+        <div class="cta-overlay"></div>
+        <div class="cta-content reveal">
+          <h2 class="cta-title">Start Your Journey Today</h2>
+          <p class="cta-subtitle">
+            Join thousands of travelers exploring the city the smart way.
+          </p>
+          <div class="cta-buttons">
+            <a href="#destinations" class="btn-primary btn-lg ripple">
+              <i class="fa-solid fa-compass"></i> Explore Destinations
+            </a>
+            <button class="btn-outline-light btn-lg ripple" data-open-modal="register">
+              <i class="fa-solid fa-user-plus"></i> Create Account
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== 10. FOOTER ===================== -->
+    <footer class="footer" id="contact">
+      <div class="footer-container">
+        <div class="footer-col footer-brand">
+          <a href="#home" class="logo">
+            <i class="fa-solid fa-train-subway logo-icon"></i>
+            <span class="logo-text">MetroTour<span class="logo-accent">Explorer</span></span>
+          </a>
+          <p class="footer-about">
+            Your premium companion for discovering destinations, planning metro
+            routes, and booking hotels and events across the city.
+          </p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#metro">Metro Routes</a></li>
+            <li><a href="#hotels">Hotels</a></li>
+            <li><a href="#events">Events</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">Hotel Booking</a></li>
+            <li><a href="#">Event Tickets</a></li>
+            <li><a href="#">Metro Planning</a></li>
+            <li><a href="#">Travel Guides</a></li>
+            <li><a href="#">24×7 Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Newsletter</h4>
+          <p class="footer-newsletter-text">
+            Subscribe for travel deals and city updates.
+          </p>
+          <form class="newsletter" id="newsletterForm">
+            <input type="email" placeholder="Your email" required />
+            <button type="submit" class="btn-primary" aria-label="Subscribe">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> 21 Explorer Plaza, Downtown</li>
+            <li><i class="fa-solid fa-phone"></i> +1 (800) 555-0199</li>
+            <li><i class="fa-solid fa-envelope"></i> hello@metrotour.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> MetroTour Explorer. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- ===================== AUTH MODAL ===================== -->
+    <div class="modal-overlay" id="authModal" aria-hidden="true">
+      <div class="modal glass" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="modalClose" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3 class="modal-title" id="modalTitle">Login</h3>
+        <p class="modal-subtitle" id="modalSubtitle">
+          Welcome back. Please sign in to continue.
+        </p>
+        <form class="auth-form" id="authForm">
+          <div class="form-group" id="nameField" hidden>
+            <label for="authName">Full name</label>
+            <input type="text" id="authName" placeholder="Your name" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="authEmail">Email</label>
+            <input type="email" id="authEmail" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="authPassword">Password</label>
+            <input type="password" id="authPassword" placeholder="••••••••" required autocomplete="current-password" />
+          </div>
+          <button type="submit" class="btn-primary btn-block ripple" id="authSubmit">
+            Login
+          </button>
+        </form>
+        <p class="modal-switch">
+          <span id="modalSwitchText">Don't have an account?</span>
+          <button class="link-btn" id="modalSwitchBtn">Register</button>
+        </p>
+      </div>
+    </div>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
